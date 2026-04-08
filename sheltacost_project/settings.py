@@ -87,6 +87,15 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-&4)5mq)55wzlq(qwxh15j^nzdf
 DEBUG = get_bool('DEBUG', True)
 
 ALLOWED_HOSTS = get_list('ALLOWED_HOSTS', '*')
+render_hostname = os.getenv('RENDER_EXTERNAL_HOSTNAME')
+if render_hostname and render_hostname not in ALLOWED_HOSTS and '*' not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(render_hostname)
+
+CSRF_TRUSTED_ORIGINS = get_list('CSRF_TRUSTED_ORIGINS')
+if render_hostname:
+    render_origin = f'https://{render_hostname}'
+    if render_origin not in CSRF_TRUSTED_ORIGINS:
+        CSRF_TRUSTED_ORIGINS.append(render_origin)
 
 
 # Application definition
@@ -103,6 +112,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -176,6 +186,22 @@ USE_TZ = True
 
 STATIC_URL = '/assets/'
 STATICFILES_DIRS = [BASE_DIR / 'assets']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+    },
+}
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+if not DEBUG:
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = get_bool('SECURE_SSL_REDIRECT', True)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

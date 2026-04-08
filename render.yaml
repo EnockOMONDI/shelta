@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sheltacost
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn sheltacost_project.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.9
+      - key: DATABASE_SSLMODE
+        value: require
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        value: "*"
