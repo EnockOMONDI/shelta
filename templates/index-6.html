@@ -1,0 +1,516 @@
+{% extends "base.html" %}
+{% block title %}Shelta Cost Solutions Ltd{% endblock %}
+{% block content %}
+	<!-- Banner Area Start -->
+    <div class="banner__two swiper slide_three">
+        <div class="swiper-wrapper">
+            <div class="banner__two-area swiper-slide">	
+                <div class="banner__two-area-image" style="background-image: url('assets/img/banner/banner-1.png');"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-12">
+                            <div class="banner__two-content">
+                                <span class="subtitle" data-animation="fadeInUp" data-delay=".3s">Quantity Surveying Consultancy</span>
+                                <h2 data-animation="fadeInUp" data-delay=".6s">Cost Advice for</h2>
+                                <h1 data-animation="fadeInUp" data-delay=".9s">Better Decisions</h1>
+						        <a class="build_button" href="about.html" data-animation="fadeInUp" data-delay="1.2s">Company Profile<i class="flaticon-right-up"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner__two-area swiper-slide">	
+                <div class="banner__two-area-image" style="background-image: url('assets/img/banner/banner.png');"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-12">
+                            <div class="banner__two-content">
+                                <span class="subtitle" data-animation="fadeInUp" data-delay=".3s">Project & Contract Management</span>
+                                <h2 data-animation="fadeInUp" data-delay=".6s">Delivering Projects</h2>
+                                <h1 data-animation="fadeInUp" data-delay=".9s">Within Budget</h1>
+						        <a class="build_button" href="{% url 'services' %}" data-animation="fadeInUp" data-delay="1.2s">Our Services<i class="flaticon-right-up"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner__two-area swiper-slide">	
+                <div class="banner__two-area-image" style="background-image: url('assets/img/banner/banner-3.png');"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-12">
+                            <div class="banner__two-content">
+                                <span class="subtitle" data-animation="fadeInUp" data-delay=".3s">Monitoring, Evaluation & Claims Support</span>
+                                <h2 data-animation="fadeInUp" data-delay=".6s">Trusted by Developers,</h2>
+                                <h1 data-animation="fadeInUp" data-delay=".9s">Financiers and Contractors</h1>
+						        <a class="build_button" href="{% url 'portfolio' %}" data-animation="fadeInUp" data-delay="1.2s">Project Experience<i class="flaticon-right-up"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner__two-slide">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="banner__two-slide-area">
+                        <div class="banner__two-slide-area-thumb dark_image">
+                            <div class="swiper slide_thumb">
+                                <div class="swiper-wrapper thumb__area">
+                                    <div class="banner__two-slide-area-thumb-item swiper-slide">
+                                        <img src="assets/img/banner/banner-1.png" alt="banner">
+                                        <h6>Cost Advice for Better Decisions</h6>
+                                    </div>
+                                    <div class="banner__two-slide-area-thumb-item swiper-slide">
+                                        <img src="assets/img/banner/banner.png" alt="banner">
+                                        <h6>Delivering Projects Within Budget</h6>
+                                    </div>
+                                    <div class="banner__two-slide-area-thumb-item swiper-slide">
+                                        <img src="assets/img/banner/banner-3.png" alt="banner">
+                                        <h6>Trusted by Developers and Financiers</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner__two-slide-area-arrow">
+                            <div class="banner__two-slide-area-arrow-prev banner_prev"><i class="fal fa-long-arrow-left"></i></div>
+                            <div class="banner__two-slide-area-arrow-next banner_next"><i class="fal fa-long-arrow-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- Banner Area End -->
+	<!-- Services Area Start -->
+	<div class="services__two section-padding">
+		<div class="container">
+			<div class="row al-end">
+				<div class="col-lg-12">
+					<div class="services__two-title t-center">
+						<span class="subtitle wow fadeInLeft" data-wow-delay=".4s">Professional Services</span>
+						<h2 class="title_split_anim">Construction Cost and Project Consultancy</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-60">
+				<div class="col-xl-12">
+                    <div class="slider-area wow fadeInUp" data-wow-delay=".5s">
+                        <div class="swiper services_slide data_cursor" data-cursor-text="Drag">
+                            <div class="swiper-wrapper">
+                                {% for service in featured_services %}
+                                <div class="swiper-slide">
+                                    <div class="services__one-item">
+                                        <i class="{{ service.icon_class }}"></i>
+                                        <h4><a href="{% url 'service_detail' service.slug %}">{{ service.title }}</a></h4>
+                                        <a class="more_btn" href="{% url 'service_detail' service.slug %}">Read More<i class="flaticon-right-up"></i></a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="slider-arrow">
+                            <div class="slider-arrow-prev service_prev">
+                                <i class="fa-sharp fa-regular fa-arrow-left-long"></i>
+                            </div>
+                            <div class="slider-arrow-next service_next">
+                                <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Services Area End -->
+    <!-- About Area Start -->
+    <div class="about__two section-padding pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-6 lg-mb-25">
+                    <div class="about__two-left section-padding pb-0">
+                        <span class="subtitle wow fadeInLeft" data-wow-delay=".4s">About Shelta Cost</span>
+                        <h2 class="title_split_anim">A Kenyan Consultancy Built on Cost Certainty and Timely Advice</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".4s">Founded in 2014 and incorporated in January 2015, Shelta Cost Solutions Ltd offers consultancy services in quantity surveying, contract administration, project management, construction management, feasibility studies, dispute resolution, and project monitoring and evaluation.</p>
+                        <div class="item_bounce">
+                            <a class="build_button mt-35" href="about.html">Learn More<i class="flaticon-right-up"></i></a>                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-6">
+                    <div class="about__two-right">
+                        <img class="wow img_top_animation" src="assets/img/page/who-we-are.jpg" alt="image">
+                        <div class="counter__one-area mt-35">
+                            <div class="about__two-right-counter">
+                                <h2><span class="counter">7</span>+</h2>
+                                <p>Core Service Lines</p>
+                            </div>
+                            <div class="about__two-right-counter">
+                                <h2><span class="counter">2</span></h2>
+                                <p>Operational Offices</p>
+                            </div>
+                            <div class="about__two-right-counter">
+                                <h2><span class="counter">10</span>+</h2>
+                                <p>Years of Practice</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Area End -->
+    <!-- Portfolio Area Start -->
+    <div class="portfolio__two section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 columns_sticky lg-mb-25">
+                    <div class="portfolio__two-left mr-40 xl-mr-0">
+                        <span class="subtitle wow fadeInLeft" data-wow-delay=".4s">Project Experience</span>
+                        <h2 class="title_split_anim">Selected Sectors and Assignments</h2>
+                        <div class="item_bounce">
+                            <a class="build_button mt-35" href="{% url 'portfolio' %}">View Experience<i class="flaticon-right-up"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="portfolio__two-right">
+                        {% for project in featured_projects %}
+                        <div class="portfolio__two-item{% if not forloop.first %} mt-25{% endif %} card_sticky" {% if forloop.counter == 1 %}style="--card-top: 100px;"{% elif forloop.counter == 2 %}style="--card-top: 180px;"{% elif forloop.counter == 3 %}style="--card-top: 260px;"{% endif %}>
+                            <img src="{{ project.image }}" alt="{{ project.title }}">
+                            <div class="portfolio__two-item-content">
+                                <span>{{ project.sector }}</span>
+                                <h4><a href="{% url 'project_detail' project.slug %}">{{ project.title }}</a></h4>
+                                <a href="{% url 'project_detail' project.slug %}"><i class="flaticon-right-up"></i></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Area End -->
+    <!-- Faq Area Start -->
+    <div class="faq__area section-padding">
+        <div class="container">
+            <div class="row al-center">
+                <div class="col-xl-6 col-lg-5 lg-mb-25">
+                    <div class="faq__area-image mr-50 xl-mr-0">
+                        <img class="wow img_right_animation" src="assets/img/service/services-1.html" alt="image">
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <div class="faq__area-right">
+                        <div class="faq__area-right-title mb-40">
+                            <span class="subtitle wow fadeInLeft" data-wow-delay=".4s">Common Inquiries</span>
+                            <h2 class="title_split_anim">Questions Clients Ask Before Engaging Us</h2>
+                        </div>
+                        <div class="wow fadeInUp" data-wow-delay=".9s" id="accordionExample">
+                            <div class="faq-item">
+                                <h5 class="icon" data-bs-toggle="collapse" data-bs-target="#collapseOne">1. What services does Shelta Cost Solutions provide?</h5>
+                                <div id="collapseOne" class="faq-item-body collapse show" data-bs-parent="#accordionExample">
+                                    <p>We provide quantity surveying, contract administration, project management, construction management, feasibility studies, project monitoring and evaluation, and dispute resolution and management.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <h5 class="icon collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">2. Which sectors have you worked in?</h5>
+                                <div id="collapseTwo" class="faq-item-body collapse" data-bs-parent="#accordionExample">
+                                    <p>Our experience covers luxury and middle-income apartments, bank and office fit-outs, commercial developments, industrial complexes, retail outlets, schools, social facilities, hotels, hostels and sports facilities.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <h5 class="icon collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">3. Are you professionally registered?</h5>
+                                <div id="collapseThree" class="faq-item-body collapse" data-bs-parent="#accordionExample">
+                                    <p>Yes. The firm was licensed by BORAQS in 2018 under registration number 258Q and became a firm member of the AAK Quantity Surveyors Chapter in 2021 under member number F00206.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Faq Area End -->
+    <!-- Pricing Plan Area Start -->
+    <div class="price__area section-padding">
+        <div class="container">
+            <div class="row mb-50">
+                <div class="col-xl-12">
+                    <div class="price__area-title t-center">
+                        <span class="subtitle wow fadeInLeft" data-wow-delay=".4s">Credentials</span>
+                        <h2 class="title_split_anim">Professional Milestones and Registration</h2>                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6 xl-mb-25 wow fadeInUp" data-wow-delay=".4s">
+                    <div class="price__area-item">
+                        <div class="price__area-item-price">
+                            <span>Foundation</span>
+                            <h3>Firm Founded</h3>
+                            <h2>2014<span>Year established</span></h2>
+                        </div>
+                        <div class="price__area-item-list">
+                            <ul>
+                                <li><i class="flaticon-checked"></i>Founded to provide quantity surveying consultancy</li>
+                                <li><i class="flaticon-checked"></i>100% Kenyan owned company</li>
+                                <li><i class="flaticon-checked"></i>Fast turnaround time in advice and solutions</li>
+                                <li><i class="flaticon-checked"></i>Experience in building and civil engineering works</li>
+                                <li><i class="flaticon-checked"></i>Growth from private dwellings to major developments</li>
+                            </ul>
+                        </div>
+                        <div class="price__area-item-btn">
+                            <a class="build_button" href="about.html">About Us<i class="flaticon-right-up"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 md-mb-25 wow fadeInUp" data-wow-delay=".7s">
+                    <div class="price__area-item active">
+                        <div class="price__area-item-price">
+                            <span>Registration</span>
+                            <h3>BORAQS License</h3>
+                            <h2>258Q<span>Firm registration</span></h2>
+                        </div>
+                        <div class="price__area-item-list">
+                            <ul>
+                                <li><i class="flaticon-checked"></i>Licensed by the Board of Registration of Architects and Quantity Surveyors</li>
+                                <li><i class="flaticon-checked"></i>Recognized consultancy practice in Kenya</li>
+                                <li><i class="flaticon-checked"></i>Supports public and private sector assignments</li>
+                                <li><i class="flaticon-checked"></i>Strong contract and cost-control expertise</li>
+                                <li><i class="flaticon-checked"></i>Trusted on large, complex developments</li>
+                            </ul>
+                            
+                        </div>
+                        <div class="price__area-item-btn">
+                            <a class="build_button" href="services-details.html">Service Detail<i class="flaticon-right-up"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="1s">
+                    <div class="price__area-item">
+                        <div class="price__area-item-price">
+                            <span>Professional Membership</span>
+                            <h3>AAK QS Chapter</h3>
+                            <h2>F00206<span>Firm member number</span></h2>
+                        </div>
+                        <div class="price__area-item-list">
+                            <ul>
+                                <li><i class="flaticon-checked"></i>AAK Quantity Surveyors Chapter member since 2021</li>
+                                <li><i class="flaticon-checked"></i>Strategic partnerships across design disciplines</li>
+                                <li><i class="flaticon-checked"></i>Timely, reliable and cost-effective service delivery</li>
+                                <li><i class="flaticon-checked"></i>Commitment to integrity, accountability and teamwork</li>
+                                <li><i class="flaticon-checked"></i>Sustainable solutions for housing and infrastructure needs</li>
+                            </ul>                            
+                        </div>
+                        <div class="price__area-item-btn">
+                            <a class="build_button" href="contact.html">Contact Us<i class="flaticon-right-up"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pricing Plan Area End -->
+    <!-- Brand Area Start -->
+    <div class="brand__area section-padding pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 scroll__slider">
+                    <div class="text-slide">
+                        <div class="sliders text_scroll">
+                            <ul>
+                                <li><img src="assets/img/brand/brand-1.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-2.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-3.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-4.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-5.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-6.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-7.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-8.html" alt="image"></li>
+                            </ul>
+                        </div>
+                        <div class="sliders text_scroll">
+                            <ul>
+                                <li><img src="assets/img/brand/brand-1.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-2.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-3.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-4.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-5.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-6.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-7.html" alt="image"></li>
+                                <li><img src="assets/img/brand/brand-8.html" alt="image"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Brand Area End -->
+    <!-- Testimonial Area Start -->
+    <div class="testimonial__two section-padding">
+		<div class="testimonial_two_slide wow fadeInUp" data-wow-delay=".5s">
+			<div class="swiper-wrapper data_cursor" data-cursor-text="Drag">
+				<div class="swiper-slide">
+					<div class="testimonial__one-item">
+						<div class="testimonial__one-item-client">
+							<div class="testimonial__one-item-client-image">
+								<img src="assets/img/team/team-1.jpg" alt="image">
+							</div>
+							<div class="testimonial__one-item-client-title">
+								<h4>Godrick Oduu</h4>
+								<span>Co-Founder</span>
+							</div>
+						</div>
+						<p>Godrick Oduu is a co-founder of Shelta Cost Solutions Ltd with over 12 years of experience in quantity surveying, project management, arbitration, monitoring and evaluation, and contract administration.</p>
+						<div class="testimonial__one-item-reviews">
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="testimonial__one-item">
+						<div class="testimonial__one-item-client">
+							<div class="testimonial__one-item-client-image">
+								<img src="assets/img/team/team-2.jpg" alt="image">
+							</div>
+							<div class="testimonial__one-item-client-title">
+								<h4>Robert John</h4>
+								<span>Co-Founder</span>
+							</div>
+						</div>
+						<p>Robert John is a co-founder with over 12 years of experience in the practice of quantity surveying and administration, having risen through senior roles in established consulting firms.</p>
+						<div class="testimonial__one-item-reviews">
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="testimonial__one-item">
+						<div class="testimonial__one-item-client">
+							<div class="testimonial__one-item-client-image">
+								<img src="assets/img/team/team-3.jpg" alt="image">
+							</div>
+							<div class="testimonial__one-item-client-title">
+								<h4>Gideon Lili Mwindu</h4>
+								<span>Associate Director</span>
+							</div>
+						</div>
+						<p>Gideon Lili Mwindu serves as Associate Director with more than 10 years of experience in quantity surveying, contract administration and claims management.</p>
+						<div class="testimonial__one-item-reviews">
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+							<i class="flaticon-star"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    <!-- Testimonial Area End -->
+    <!-- Blog Area Start -->
+	<div class="blog__two section-padding-two">
+		<div class="container">
+			<div class="row mb-55">
+				<div class="col-xl-12">
+					<div class="blog__two-title t-center">
+						<span class="subtitle wow fadeInLeft" data-wow-delay=".4s">Sector Experience</span>
+						<h2 class="title_split_anim">Where We Have Delivered Value</h2>
+					</div>					
+				</div>
+			</div>
+			<div class="row wow fadeInUp" data-wow-delay=".5s">
+                <div class="col-xl-12">
+                    <div class="slider-area">
+                        <div class="blog_slide swiper data_cursor" data-cursor-text="Drag">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="blog__one-item">
+                                        <div class="blog__one-item-image">
+                                            <a href="blog-details.html"><img src="assets/img/blog/blog-1.jpg" alt="image"></a>
+                                            <div class="blog__one-item-image-date">
+                                                <h6><i class="fa-regular fa-calendar"></i>22 Dec</h6>
+                                            </div>
+                                        </div>
+                                        <div class="blog__one-item-content">
+                                            <div class="meta">
+                                                <ul>
+                                                    <li><a href="#"><i class="far fa-user"></i>Luxury Apartments</a></li>
+                                                    <li><a href="#"><i class="far fa-comment-dots"></i>1.9B+ Projects</a></li>
+                                                </ul>
+                                            </div>
+                                            <h4><a href="portfolio-details.html">From serviced apartments to affordable housing schemes</a></h4>
+                                            <a class="more_btn" href="portfolio-details.html">View Experience<i class="flaticon-right-up"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="blog__one-item">
+                                        <div class="blog__one-item-image">
+                                            <a href="blog-details.html"><img src="assets/img/blog/blog-2.jpg" alt="image"></a>
+                                            <div class="blog__one-item-image-date">
+                                                <h6><i class="fa-regular fa-calendar"></i>19 Dec</h6>
+                                            </div>
+                                        </div>
+                                        <div class="blog__one-item-content">
+                                            <div class="meta">
+                                                <ul>
+                                                    <li><a href="#"><i class="far fa-user"></i>Bank Fit-Outs</a></li>
+                                                    <li><a href="#"><i class="far fa-comment-dots"></i>Completed Assignments</a></li>
+                                                </ul>
+                                            </div>
+                                            <h4><a href="portfolio-details.html">Ecobank, GTBank and Stanbic office and branch fit-outs</a></h4>
+                                            <a class="more_btn" href="portfolio-details.html">View Experience<i class="flaticon-right-up"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="blog__one-item">
+                                        <div class="blog__one-item-image">
+                                            <a href="blog-details.html"><img src="assets/img/blog/blog-3.jpg" alt="image"></a>
+                                            <div class="blog__one-item-image-date">
+                                                <h6><i class="fa-regular fa-calendar"></i>14 Dec</h6>
+                                            </div>
+                                        </div>
+                                        <div class="blog__one-item-content">
+                                            <div class="meta">
+                                                <ul>
+                                                    <li><a href="#"><i class="far fa-user"></i>Public Projects</a></li>
+                                                    <li><a href="#"><i class="far fa-comment-dots"></i>Ongoing & Completed</a></li>
+                                                </ul>
+                                            </div>
+                                            <h4><a href="portfolio-details.html">Markets, schools, warehouses and Bukhungu Stadium Phase 2</a></h4>
+                                            <a class="more_btn" href="portfolio-details.html">View Experience<i class="flaticon-right-up"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-arrow">
+                            <div class="slider-arrow-prev blog_prev">
+                                <i class="fa-sharp fa-regular fa-arrow-left-long"></i>
+                            </div>
+                            <div class="slider-arrow-next blog_next">
+                                <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>     
+    <!-- Blog Area End -->
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}{{ service.title }} | Shelta Cost Solutions Ltd{% endblock %}
+{% block content %}
+<div class="breadcrumb__area" style="background-image: url('assets/img/page/breadcrumb.html');">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="breadcrumb__area-content">
+					<h2>{{ service.title }}</h2>
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a><i class="fa-regular fa-angle-right"></i></li>
+						<li><a href="{% url 'services' %}">Services</a><i class="fa-regular fa-angle-right"></i></li>
+						<li>{{ service.title }}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="services__details section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="all__sidebar">
+					<div class="all__sidebar-item">
+						<h4>Our Services</h4>
+						<div class="all__sidebar-item-category">
+							<ul>
+								{% for item in services %}
+								<li>
+									<a class="{% if item.slug == service.slug %}active{% endif %}" href="{% url 'service_detail' item.slug %}">
+										{{ item.title }}<i class="flaticon-right-up"></i>
+									</a>
+								</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+					<div class="all__sidebar-item-help mb-25" style="background-image: url('assets/img/page/cta-1.html');">
+						<h3>Need Cost Advice on Your Next Development?</h3>
+						<a class="build_button mt-20" href="{% url 'contact' %}">Talk to Us<i class="flaticon-right-up"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-8">
+				<div class="services__details-area">
+					<img src="{{ service.detail_image }}" alt="{{ service.title }}">
+					<h3 class="mt-25 mb-20">{{ service.detail_heading }}</h3>
+					<p class="mb-20">{{ service.detail_intro }}</p>
+					<p class="mb-25">{{ service.detail_body }}</p>
+					<h4 class="mb-20">Support Across the Full Project Lifecycle</h4>
+					<p>{{ service.detail_body_two }}</p>
+					<div class="row mt-40 mb-40">
+						<div class="col-sm-6 sm-mb-25"><img class="img_full" src="{{ service.gallery_image_left }}" alt="{{ service.title }}"></div>
+						<div class="col-sm-6"><img class="img_full" src="{{ service.gallery_image_right }}" alt="{{ service.title }}"></div>
+					</div>
+					<p>{{ service.short_description }}</p>
+					<ul class="services__details-area-list">
+						{% for point in service.checklist %}
+						<li><i class="flaticon-check-mark"></i>{{ point }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

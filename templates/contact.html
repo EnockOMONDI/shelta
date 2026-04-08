@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Contact Us | Shelta Cost Solutions Ltd{% endblock %}
+{% block content %}
+<div class="breadcrumb__area" style="background-image: url('assets/img/page/breadcrumb.html');">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="breadcrumb__area-content">
+					<h2>Contact Us</h2>
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a><i class="fa-regular fa-angle-right"></i></li>
+						<li>Contact Us</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="contact__area section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 lg-mb-25">
+				<div class="contact__area-left mr-40 xl-mr-0">
+					<div class="title">
+						<span class="subtitle wow fadeInLeft" data-wow-delay=".4s">Contact Us</span>
+						<h2 class="title_split_anim mb-25">Get In Touch With Shelta Cost Solutions Ltd</h2>
+						<p class="wow fadeInUp" data-wow-delay=".4s">Reach out for project cost advice, tender support, project monitoring, contract administration, or a discussion on your next development.</p>
+					</div>
+					<div class="contact__area-left-contact wow fadeInUp" data-wow-delay=".7s">
+						<div class="contact__area-left-contact-item">
+							<div class="contact__area-left-contact-item-icon"><i class="flaticon-phone"></i></div>
+							<div class="contact__area-left-contact-item-content"><span>Phone:</span><h6><a href="tel:+254768823900">+254 768 823 900</a></h6></div>
+						</div>
+						<div class="contact__area-left-contact-item">
+							<div class="contact__area-left-contact-item-icon"><i class="flaticon-email-3"></i></div>
+							<div class="contact__area-left-contact-item-content"><span>Email Address:</span><h6><a href="mailto:info@sheltacost.com">info@sheltacost.com</a></h6></div>
+						</div>
+						<div class="contact__area-left-contact-item">
+							<div class="contact__area-left-contact-item-icon"><i class="flaticon-location-1"></i></div>
+							<div class="contact__area-left-contact-item-content"><span>Location:</span><h6><a href="https://www.google.com/maps?q=Eagle+Guest+House+Offices,+Kilimani+Road,+Nairobi" target="_blank">Eagle Guest House Offices, Suite 217, 2nd Floor, Kilimani Road, Nairobi</a></h6></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-7 wow fadeInRight" data-wow-delay=".4s">
+				<div class="contact__area-form">
+					<h4>Send Your Inquiry</h4>
+					<form action="#">
+						<div class="row">
+							<div class="col-md-6 mb-25"><div class="contact__form-area-item"><input type="text" name="name" placeholder="Full Name" required="required"></div></div>
+							<div class="col-md-6 md-mb-25"><div class="contact__form-area-item"><input type="email" name="email" placeholder="Email Address" required="required"></div></div>
+							<div class="col-md-12 mb-25"><div class="contact__form-area-item"><input type="text" name="subject" placeholder="Service of Interest"></div></div>
+							<div class="col-md-12 mb-25"><div class="contact__form-area-item"><textarea name="message" placeholder="Tell us about your project, site, budget stage or support needed"></textarea></div></div>
+							<div class="col-md-12"><div class="contact__form-area-item"><button class="build_button" type="submit">Submit Inquiry <i class="flaticon-right-up"></i></button></div></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="map section-padding pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12 wow fadeInUp" data-wow-delay=".4s">
+				<div class="map-area">
+					<iframe loading="lazy" src="https://maps.google.com/maps?q=Kilimani%20Road%2C%20Nairobi%2C%20Kenya&amp;t=m&amp;z=13&amp;output=embed&amp;iwloc=near" title="Kilimani Road, Nairobi, Kenya" aria-label="Kilimani Road, Nairobi, Kenya"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

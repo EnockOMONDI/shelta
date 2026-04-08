@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Request Consultation | Shelta Cost Solutions Ltd{% endblock %}
+{% block content %}
+<div class="breadcrumb__area" style="background-image: url('assets/img/page/breadcrumb.html');">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="breadcrumb__area-content">
+					<h2>Request Consultation</h2>
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a><i class="fa-regular fa-angle-right"></i></li>
+						<li>Request Consultation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="request__quote section-padding-three">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<form action="#">
+					<div class="row">
+						<div class="col-md-6 mt-30"><div class="request__quote-item"><label>Full Name<span> *</span></label><input type="text" name="name" placeholder="Your Name" required></div></div>
+						<div class="col-md-6 mt-30"><div class="request__quote-item"><label>Company / Institution</label><input type="text" placeholder="Organization Name"></div></div>
+						<div class="col-md-6 mt-30"><div class="request__quote-item"><label>Email Address<span> *</span></label><input type="email" placeholder="name@company.com" required></div></div>
+						<div class="col-md-6 mt-30"><div class="request__quote-item"><label>Phone Number<span> *</span></label><input type="text" placeholder="+254 700 000 000" required></div></div>
+						<div class="col-md-6 mt-30"><div class="request__quote-item"><label>Project Type<span> *</span></label><input type="text" placeholder="Apartments, offices, school, warehouse, fit-out" required></div></div>
+						<div class="col-md-6 mt-30"><div class="request__quote-item"><label>Project Location<span> *</span></label><input type="text" placeholder="Town / County / Site Location" required></div></div>
+						<div class="col-md-12 mt-30">
+							<p class="mb-10">Which services do you need?<span> *</span></p>
+							<div class="row">
+								<div class="col-md-4"><div class="request__quote-services"><label><input class="mr-10" type="checkbox">Quantity Surveying</label><label><input class="mr-10" type="checkbox">Contract Administration</label><label><input class="mr-10" type="checkbox">Project Management</label></div></div>
+								<div class="col-md-4"><div class="request__quote-services"><label><input class="mr-10" type="checkbox">Construction Management</label><label><input class="mr-10" type="checkbox">Feasibility Studies</label><label><input class="mr-10" type="checkbox">Monitoring & Evaluation</label></div></div>
+								<div class="col-md-4"><div class="request__quote-services"><label><input class="mr-10" type="checkbox">Claims Support</label><label><input class="mr-10" type="checkbox">Dispute Resolution</label><label><input class="mr-10" type="checkbox">Other Advisory Support</label></div></div>
+							</div>
+						</div>
+						<div class="col-md-12 mt-30"><div class="request__quote-item"><label>Project Brief<span> *</span></label><textarea name="message" placeholder="Share the scope, current stage, timelines, funding requirements or specific commercial support needed"></textarea></div></div>
+						<div class="col-lg-12"><button class="build_button mt-30" type="submit">Request Consultation<i class="flaticon-right-up"></i></button></div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

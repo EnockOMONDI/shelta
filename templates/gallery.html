@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Portfolio | Shelta Cost Solutions Ltd{% endblock %}
+{% block content %}
+<div class="breadcrumb__area" style="background-image: url('assets/img/page/breadcrumb.html');">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="breadcrumb__area-content">
+					<h2>Portfolio</h2>
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a><i class="fa-regular fa-angle-right"></i></li>
+						<li>Portfolio</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="gallery__area four__columns section-padding">
+	<div class="container">
+		<div class="row gallery__area-active">
+			{% for project in projects %}
+			<div class="col-xl-4 col-md-6 mt-25 wow fadeInUp" data-wow-delay=".4s">
+				<div class="portfolio__four-item">
+					<a href="{% url 'project_detail' project.slug %}"><i class="flaticon flaticon-right-up"></i></a>
+					<a href="{% url 'project_detail' project.slug %}"><img src="{{ project.image }}" alt="{{ project.title }}"></a>
+					<div class="portfolio__four-item-content">
+						<span>{{ project.sector }}</span>
+						<h5><a href="{% url 'project_detail' project.slug %}">{{ project.title }}</a></h5>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}

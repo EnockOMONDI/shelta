@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} | Shelta Cost Solutions Ltd{% endblock %}
+{% block content %}
+<div class="breadcrumb__area" style="background-image: url('assets/img/page/breadcrumb.html');">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="breadcrumb__area-content">
+					<h2>{{ post.title }}</h2>
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a><i class="fa-regular fa-angle-right"></i></li>
+						<li><a href="{% url 'blog_standard' %}">Blog</a><i class="fa-regular fa-angle-right"></i></li>
+						<li>{{ post.title }}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="blog__details section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 lg-mb-25">
+				<div class="blog__details-area">
+					<img src="{{ post.image }}" alt="{{ post.title }}">
+					<h3 class="mt-25 mb-20">{{ post.title }}</h3>
+					<p>{{ post.intro }}</p>
+					<p>{{ post.body }}</p>
+					{% if post.quote %}
+					<div class="blog__details-area-box">
+						<i class="fas fa-quote-right"></i>
+						<div>
+							<h6>{{ post.quote }}</h6>
+							<span>{{ post.quote_author }}</span>
+						</div>
+					</div>
+					{% endif %}
+					{% if post.section_heading %}
+					<h4 class="mb-20">{{ post.section_heading }}</h4>
+					<p>{{ post.section_body }}</p>
+					{% endif %}
+				</div>
+			</div>
+			<div class="col-lg-4 columns_sticky">
+				<div class="all__sidebar">
+					<div class="all__sidebar-item">
+						<h4>Recent Blog</h4>
+						<div class="all__sidebar-item-post dark_image">
+							{% for recent in recent_posts %}
+							<div class="post__item"><div class="post__item-image"><a href="{% url 'blog_detail' recent.slug %}"><img src="{{ recent.image }}" alt="post-image"></a></div><div class="post__item-title"><h6><a href="{% url 'blog_detail' recent.slug %}">{{ recent.title }}</a></h6><span><i class="far fa-calendar-alt"></i>{{ recent.published_label }}</span></div></div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

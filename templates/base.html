@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<base href="/">
+	<meta name="description" content="Shelta Cost Solutions Ltd">
+	<meta name="keywords" content="quantity surveying, project management, contract administration, kenya">
+	<meta name="author" content="Shelta Cost Solutions Ltd">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}Shelta Cost Solutions Ltd{% endblock %}</title>
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/fontawesome.css">
+	<link rel="stylesheet" href="assets/font/flaticon_flexitype.css">
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="assets/sass/style.css">
+</head>
+<body>
+	<div class="theme-loader">
+		<div class="spinner">
+			<div class="spinner-bounce one"></div>
+			<div class="spinner-bounce two"></div>
+			<div class="spinner-bounce three"></div>
+		</div>
+	</div>
+	<div class="switch__tab">
+		<div class="switch__tab-icon">
+			<div class="switch__tab-open"><i class="fa-sharp fa-light fa-gear"></i></div>
+			<div class="switch__tab-close"><i class="fal fa-times"></i></div>
+		</div>
+		<div class="switch__tab-area">
+			<div class="switch__tab-area-item">
+				<h5>Mode</h5>
+				<div class="switch__tab-area-item-button type-dark-mode">
+					<button class="active" data-mode="light">light</button>
+					<button data-mode="dark-mode">dark</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% include "partials/navbar.html" %}
+	{% block content %}{% endblock %}
+	{% include "partials/footer.html" %}
+	<div class="scroll-up scroll-one">
+		<svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102"><path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" /></svg>
+	</div>
+	<script src="assets/js/jquery-3.6.0.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.counterup.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/progressbar.min.js"></script>
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="assets/js/swiper-bundle.min.js"></script>
+	<script src="assets/js/jquery.waypoints.min.js"></script>
+	<script src="assets/js/isotope.pkgd.min.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/gsap.js"></script>
+	<script src="assets/js/scroll-trigger.js"></script>
+	<script src="assets/js/split-text.js"></script>
+	<script src="assets/js/custom.js"></script>
+</body>
+</html>

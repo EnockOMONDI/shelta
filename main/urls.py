@@ -1,0 +1,41 @@
+from django.urls import path
+
+from . import views
+
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('index.html', views.home),
+    path('index-2.html', views.home),
+    path('index-two.html', views.home),
+    path('index-three.html', views.home),
+    path('index-four.html', views.home),
+    path('index-6.html', views.home),
+    path('about.html', views.about, name='about'),
+    path('history.html', views.history, name='history'),
+    path('services.html', views.services, name='services'),
+    path('services-details.html', views.legacy_service_detail, name='legacy_service_detail'),
+    path('services/<slug:slug>/', views.service_detail, name='service_detail'),
+    path('portfolio.html', views.portfolio, name='portfolio'),
+    path('gallery.html', views.portfolio),
+    path('portfolio-two.html', views.portfolio),
+    path('portfolio-three.html', views.portfolio),
+    path('portfolio-four.html', views.portfolio),
+    path('portfolio-details.html', views.legacy_project_detail, name='legacy_project_detail'),
+    path('portfolio/<slug:slug>/', views.project_detail, name='project_detail'),
+    path('contact.html', views.contact, name='contact'),
+    path('request-quote.html', views.request_quote, name='request_quote'),
+    path('faq.html', views.static_page, {'template_name': 'faq.html'}, name='faq'),
+    path('pricing.html', views.static_page, {'template_name': 'pricing.html'}, name='pricing'),
+    path('testimonial.html', views.static_page, {'template_name': 'testimonial.html'}, name='testimonial'),
+    path('team.html', views.static_page, {'template_name': 'team.html'}, name='team'),
+    path('team-two.html', views.static_page, {'template_name': 'team-two.html'}),
+    path('team-three.html', views.static_page, {'template_name': 'team-three.html'}),
+    path('blog.html', views.blog_standard),
+    path('blog-grid-two.html', views.blog_standard),
+    path('blog-grid-three.html', views.blog_standard),
+    path('blog-standard.html', views.blog_standard, name='blog_standard'),
+    path('blog-details.html', views.legacy_blog_detail, name='legacy_blog_detail'),
+    path('blog/<slug:slug>/', views.blog_detail, name='blog_detail'),
+    path('404-error.html', views.static_page, {'template_name': '404-error.html'}),
+]

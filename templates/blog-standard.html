@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Blog | Shelta Cost Solutions Ltd{% endblock %}
+{% block content %}
+<div class="breadcrumb__area" style="background-image: url('assets/img/page/breadcrumb.html');">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="breadcrumb__area-content">
+					<h2>Blog Standard</h2>
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a><i class="fa-regular fa-angle-right"></i></li>
+						<li>Blog Standard</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="blog__standard section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 columns_sticky lg-mb-25">
+				<div class="all__sidebar">
+					<div class="all__sidebar-item">
+						<h4>Search Here</h4>
+						<div class="all__sidebar-item-search"><form action="#"><input type="text" placeholder="Search....."><button type="submit"><i class="fal fa-search"></i></button></form></div>
+					</div>
+					<div class="all__sidebar-item">
+						<h4>Recent Blog</h4>
+						<div class="all__sidebar-item-post dark_image">
+							{% for post in recent_posts %}
+							<div class="post__item"><div class="post__item-image"><a href="{% url 'blog_detail' post.slug %}"><img src="{{ post.image }}" alt="post-image"></a></div><div class="post__item-title"><h6><a href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h6><span><i class="far fa-calendar-alt"></i>{{ post.published_label }}</span></div></div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-8">
+				{% for post in posts %}
+				<div class="blog__standard-item">
+					<div class="blog__standard-item-image"><a href="{% url 'blog_detail' post.slug %}"><img src="{{ post.image }}" alt="{{ post.title }}"></a></div>
+					<div class="blog__standard-item-content">
+						<div class="blog__standard-item-content-meta"><ul><li><a href="#"><i class="fal fa-user"></i>{{ post.author }}</a></li><li><a href="#"><i class="fal fa-calendar-alt"></i>{{ post.published_label }}</a></li></ul></div>
+						<h3><a href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h3>
+						<p>{{ post.excerpt }}</p>
+						<a class="build_button" href="{% url 'blog_detail' post.slug %}">Read More<i class="flaticon-right-up"></i></a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

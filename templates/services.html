@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Services | Shelta Cost Solutions Ltd{% endblock %}
+{% block content %}
+<div class="breadcrumb__area" style="background-image: url('assets/img/page/breadcrumb.html');">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="breadcrumb__area-content">
+					<h2>Services</h2>
+					<ul>
+						<li><a href="{% url 'home' %}">Home</a><i class="fa-regular fa-angle-right"></i></li>
+						<li>Services</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="services__page section-padding-three">
+	<div class="container">
+		<div class="row">
+			{% for service in services %}
+			<div class="col-lg-4 col-md-6 mt-25 wow fadeInUp" data-wow-delay=".4s">
+				<div class="services__one-item">
+					<i class="{{ service.icon_class }}"></i>
+					<h4><a href="{% url 'service_detail' service.slug %}">{{ service.title }}</a></h4>
+					<p>{{ service.short_description }}</p>
+					<a class="more_btn" href="{% url 'service_detail' service.slug %}">Read More<i class="flaticon-right-up"></i></a>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}
