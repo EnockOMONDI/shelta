@@ -85,6 +85,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-&4)5mq)55wzlq(qwxh15j^nzdf
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = get_bool('DEBUG', True)
+ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 
 ALLOWED_HOSTS = get_list('ALLOWED_HOSTS', '*')
 render_hostname = os.getenv('RENDER_EXTERNAL_HOSTNAME')
@@ -202,6 +203,19 @@ if not DEBUG:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_SSL_REDIRECT = get_bool('SECURE_SSL_REDIRECT', True)
+
+EMAIL_BACKEND = os.getenv(
+    'EMAIL_BACKEND',
+    'django.core.mail.backends.console.EmailBackend'
+    if ENVIRONMENT != 'production'
+    else 'django.core.mail.backends.smtp.EmailBackend',
+)
+EMAIL_HOST = os.getenv('EMAIL_HOST', '')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', '587'))
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
+EMAIL_USE_TLS = get_bool('EMAIL_USE_TLS', True)
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'noreply@sheltacost.com')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

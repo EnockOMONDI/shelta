@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Profile Request Received | Shelta Cost Solutions Ltd{% endblock %}
+{% block content %}
+<style>
+  .confetti-wrap {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+  }
+  .confetti-piece {
+    position: absolute;
+    top: -20px;
+    width: 10px;
+    height: 18px;
+    opacity: 0.9;
+    animation: fall 4.5s linear forwards;
+  }
+  @keyframes fall {
+    to {
+      transform: translate3d(var(--x-end), 110vh, 0) rotate(720deg);
+      opacity: 0.2;
+    }
+  }
+</style>
+<div class="confetti-wrap" id="confetti-wrap"></div>
+<br><br>
+<div class="mission__area section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-8">
+				<span class="subtitle">Thank You</span>
+				<h2>Your company profile request has been confirmed </h2>
+				<p>The Shelta Cost company profile has been prepared for <strong>{{ email }}</strong>.</p>
+				{% if email_sent %}
+				<p>Please check your inbox for access to the latest company profile. If it does not appear immediately, allow a few minutes and check your spam folder.</p>
+				{% else %}
+				<p>You may download the company profile directly from the link below.</p>
+				{% endif %}
+				<p>Thank you for your interest in Shelta Cost Solutions Ltd. We appreciate the opportunity to support your planning, cost and project delivery priorities.</p>
+				<div class="mt-30">
+					<a class="build_button" href="{% url 'contact' %}">Contact Our Team<i class="flaticon-right-up"></i></a>
+					{% if not email_sent %}
+					<a class="build_button" href="{{ download_url }}" target="_blank" rel="noopener" style="margin-left:12px;">Download Profile<i class="flaticon-right-up"></i></a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+  (function () {
+    const wrap = document.getElementById('confetti-wrap');
+    if (!wrap) return;
+    const colors = ['#4b2c68', '#abab30', '#ffffff', '#d8cce5'];
+    for (let i = 0; i < 70; i += 1) {
+      const piece = document.createElement('span');
+      piece.className = 'confetti-piece';
+      piece.style.left = `${Math.random() * 100}vw`;
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.setProperty('--x-end', `${(Math.random() * 220) - 110}px`);
+      piece.style.animationDelay = `${Math.random() * 0.6}s`;
+      piece.style.transform = `translate3d(0,0,0) rotate(${Math.random() * 360}deg)`;
+      wrap.appendChild(piece);
+    }
+    setTimeout(() => wrap.remove(), 5200);
+  }());
+</script>
+{% endblock %}

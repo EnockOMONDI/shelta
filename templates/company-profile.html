@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Company Profile | Shelta Cost Solutions Ltd{% endblock %}
+{% block content %}
+<br><br>
+<div class="contact__area section-padding">
+	<div class="container">
+		<div class="row al-center">
+			<div class="col-lg-6 lg-mb-25">
+				<div class="mission__area-left mr-40 xl-mr-0">
+					<span class="subtitle">Company Profile </span>
+					<h2>Request the latest Shelta Cost company profile</h2>
+					<p>Enter your email address to receive Shelta Cost company profile, including our advisory capabilities, sector experience and project delivery background.</p>
+					<p>The profile provides a concise overview of our services.</p>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="contact__area-form">
+					<form method="post">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-md-12 mb-25">
+								<label for="{{ form.email.id_for_label }}">Email Address</label>
+								{{ form.email }}
+								{% if form.email.errors %}
+								<div class="mt-10" style="color:#c0392b;">{{ form.email.errors|join:', ' }}</div>
+								{% endif %}
+							</div>
+							<div class="col-md-12">
+								<button class="build_button" type="submit">Get Company Profile<i class="flaticon-right-up"></i></button>
+							</div>
+						</div>
+					</form>
+					{% if profile %}
+					<p class="mt-20 mb-0">Current profile source: <strong>{{ profile.title }}</strong></p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -73,24 +73,147 @@
 			<div class="header__area-menubar-center">
 				<div class="header__area-menubar-center-menu">
 					<ul id="mobilemenu">
+						{% if request.resolver_match.url_name != 'home' %}
 						<li><a href="{% url 'home' %}">Home</a></li>
-						<li class="menu-item-has-children">
+						{% endif %}
+						<li class="menu-item-has-children mega-menu-item">
 							<a href="#">Who we are</a>
-							<ul class="sub-menu">
-								<li><a href="{% url 'about' %}">About Us</a></li>
-								<li><a href="{% url 'history' %}">Company History</a></li>
-								<li><a href="{% url 'services' %}">Services</a></li>
+							<ul class="sub-menu mega-menu">
+								<li class="mega-menu__intro">
+									<span class="mega-menu__eyebrow">Who we are</span>
+									<h4>Shelta Cost Solutions</h4>
+									<p>Shelta Cost supports clients with cost, project and commercial advisory across building and civil engineering works in Kenya and the wider region.</p>
+								</li>
+								<li class="mega-menu__column">
+									<ul>
+										<li><a href="{% url 'about' %}#about-overview">About Us</a></li>
+										<li><a href="{% url 'about' %}#our-story">Our Story</a></li>
+										<li><a href="{% url 'about' %}#vision-mission">Vision &amp; Mission</a></li>
+										<li><a href="{% url 'about' %}#leadership-team">Leadership Team</a></li>
+									</ul>
+								</li>
+								<li class="mega-menu__column">
+									<ul>
+										<li><a href="{% url 'about' %}#our-people">Our People</a></li>
+										<li><a href="{% url 'about' %}#professional-standing">Professional Standing</a></li>
+										<li><a href="{% url 'about' %}#values">Values</a></li>
+										<li><a href="{% url 'about' %}#corporate-responsibility">Corporate Responsibility</a></li>
+									</ul>
+								</li>
+								<li class="mega-menu__promo">
+									<a class="mega-menu__promo-card" href="{% url 'company_profile' %}">
+										<div class="mega-menu__promo-content">
+											<span class="mega-menu__promo-label">Company profile</span>
+											<h5>Company Profile</h5>
+											<p>Request the latest Shelta Cost profile and receive a secure access link by email.</p>
+										</div>
+									</a>
+								</li>
 							</ul>
 						</li>
-						<li class="menu-item-has-children">
+						<li class="menu-item-has-children mega-menu-item">
+							<a href="#">Solutions</a>
+							<ul class="sub-menu mega-menu">
+								<li class="mega-menu__intro">
+									<span class="mega-menu__eyebrow">Solutions</span>
+									<h4>End-to-end advisory support</h4>
+									<p>From feasibility and procurement to delivery control and reporting, Shelta Cost provides structured support across the project lifecycle.</p>
+								</li>
+								<li class="mega-menu__column">
+									<ul>
+										<li><a href="{% url 'service_detail' 'quantity-surveying' %}">Quantity Surveying</a></li>
+										<li><a href="{% url 'service_detail' 'contract-administration' %}">Contract Administration</a></li>
+										<li><a href="{% url 'service_detail' 'project-management' %}">Project Management</a></li>
+										<li><a href="{% url 'service_detail' 'construction-management' %}">Construction Management</a></li>
+									</ul>
+								</li>
+								<li class="mega-menu__column">
+									<ul>
+										<li><a href="{% url 'service_detail' 'feasibility-studies' %}">Feasibility Studies</a></li>
+										<li><a href="{% url 'service_detail' 'project-monitoring-evaluation' %}">Project Monitoring &amp; Evaluation</a></li>
+										<li><a href="#">Dispute Resolution</a></li>
+										<li><a href="#">Cost Audits</a></li>
+									</ul>
+								</li>
+								<li class="mega-menu__promo">
+									<a class="mega-menu__promo-card" href="{% url 'services' %}">
+										<div class="mega-menu__promo-content">
+											<span class="mega-menu__promo-label">Core services</span>
+											<h5>Explore Our Solutions</h5>
+											<p>Commercial, contractual and project support tailored to active construction environments.</p>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children mega-menu-item">
 							<a href="{% url 'portfolio' %}">Portfolio</a>
-							<ul class="sub-menu">
-								<li><a href="{% url 'portfolio' %}">Portfolio</a></li>
-								<li><a href="{% url 'testimonial' %}">Testimonials</a></li>
-								<li><a href="{% url 'faq' %}">FAQ's</a></li>
+							<ul class="sub-menu mega-menu">
+								<li class="mega-menu__intro">
+									<span class="mega-menu__eyebrow">Portfolio</span>
+									<h4>Sector and project experience</h4>
+									<p>Our portfolio spans residential, commercial, institutional and sports assignments delivered with strong cost and project controls.</p>
+								</li>
+								<li class="mega-menu__column">
+									<ul>
+										<li><a href="{% url 'portfolio' %}">Luxury Apartments</a></li>
+										<li><a href="{% url 'portfolio' %}">Bank Fit-Outs</a></li>
+										<li><a href="{% url 'portfolio' %}">Commercial Developments</a></li>
+										<li><a href="{% url 'portfolio' %}">Warehouses</a></li>
+									</ul>
+								</li>
+								<li class="mega-menu__column">
+									<ul>
+										<li><a href="{% url 'portfolio' %}">Markets</a></li>
+										<li><a href="{% url 'portfolio' %}">Schools</a></li>
+										<li><a href="{% url 'portfolio' %}">Hotels</a></li>
+										<li><a href="{% url 'portfolio' %}">Sports Facilities</a></li>
+									</ul>
+								</li>
+								<li class="mega-menu__promo">
+									<a class="mega-menu__promo-card" href="{% url 'project_detail' 'bukhungu-stadium-phase-2' %}">
+										<div class="mega-menu__promo-content">
+											<span class="mega-menu__promo-label">Featured project</span>
+											<h5>Bukhungu Stadium Phase 2</h5>
+											<p>See how our project controls and commercial oversight support complex public works.</p>
+										</div>
+									</a>
+								</li>
 							</ul>
 						</li>
-						<li><a href="{% url 'blog_standard' %}">Blog</a></li>
+						<li class="menu-item-has-children mega-menu-item">
+							<a href="{% url 'blog_standard' %}">Insights</a>
+							<ul class="sub-menu mega-menu mega-menu--compact">
+								<li class="mega-menu__intro">
+									<span class="mega-menu__eyebrow">Insights</span>
+									<h4>Project intelligence and commentary</h4>
+									<p>Explore updates, articles and placeholder publications built around delivery, cost and project performance.</p>
+								</li>
+								<li class="mega-menu__column">
+									<ul>
+										<li><a href="{% url 'blog_standard' %}">Latest Insights</a></li>
+										<li><a href="{% url 'blog_standard' %}">Industry Articles</a></li>
+										<li><a href="{% url 'blog_standard' %}">Cost Guidance</a></li>
+									</ul>
+								</li>
+								<li class="mega-menu__column">
+									<ul>
+										<li><a href="{% url 'blog_standard' %}">Project Updates</a></li>
+										<li><a href="#">Publications</a></li>
+										<li><a href="#">Annual Review</a></li>
+									</ul>
+								</li>
+								<li class="mega-menu__promo">
+									<a class="mega-menu__promo-card" href="{% url 'blog_standard' %}">
+										<div class="mega-menu__promo-content">
+											<span class="mega-menu__promo-label">Latest thinking</span>
+											<h5>Read Our Insights</h5>
+											<p>Articles, observations and project-side commentary from Shelta Cost.</p>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</li>
 						<li><a href="{% url 'contact' %}">Contact Us</a></li>
 					</ul>
 				</div>

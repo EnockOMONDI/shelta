@@ -77,3 +77,40 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class CompanyProfile(models.Model):
+    title = models.CharField(max_length=200, default='Shelta Cost Company Profile')
+    download_url = models.URLField(
+        default='https://example.com/secure/company-profile.pdf',
+        help_text='Temporary secure download URL. Replace later with the Uploadcare-backed file URL.',
+    )
+    uploadcare_file_id = models.CharField(
+        max_length=255,
+        blank=True,
+        help_text='Optional Uploadcare file UUID or CDN reference.',
+    )
+    is_active = models.BooleanField(default=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-is_active', '-updated_at', '-created_at']
+
+    def __str__(self):
+        return self.title
+
+
+class ProfileDownloadLead(models.Model):
+    email = models.EmailField()
+    source = models.CharField(max_length=120, blank=True)
+    ip_address = models.GenericIPAddressField(blank=True, null=True)
+    user_agent = models.TextField(blank=True)
+    sent_at = models.DateTimeField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.email
