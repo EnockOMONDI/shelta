@@ -7818,13 +7818,12 @@ p {
     min-width: 0 !important;
     position: static !important;
     transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
     background: transparent !important;
     box-shadow: none !important;
     border-radius: 0 !important;
     padding: 0 0 0 20px !important;
-    display: block !important;
+    top: auto !important;
+    left: auto !important;
   }
   .vertical-menu .mega-menu .mega-menu__column {
     display: block;
