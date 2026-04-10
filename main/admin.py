@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.http import HttpResponse
+from unfold.admin import ModelAdmin
 
 from .models import BlogPost, CompanyProfile, ProfileDownloadLead, Project, Service
 
@@ -19,7 +20,7 @@ export_leads_as_csv.short_description = 'Export selected leads as CSV'
 
 
 @admin.register(Service)
-class ServiceAdmin(admin.ModelAdmin):
+class ServiceAdmin(ModelAdmin):
     list_display = ('title', 'slug', 'featured', 'sort_order')
     list_filter = ('featured',)
     search_fields = ('title', 'short_description')
@@ -27,7 +28,7 @@ class ServiceAdmin(admin.ModelAdmin):
 
 
 @admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(ModelAdmin):
     list_display = ('title', 'sector', 'slug', 'featured', 'sort_order')
     list_filter = ('featured', 'sector')
     search_fields = ('title', 'sector', 'summary')
@@ -35,7 +36,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 @admin.register(BlogPost)
-class BlogPostAdmin(admin.ModelAdmin):
+class BlogPostAdmin(ModelAdmin):
     list_display = ('title', 'slug', 'author', 'published_label', 'featured', 'sort_order')
     list_filter = ('featured',)
     search_fields = ('title', 'excerpt', 'intro', 'body')
@@ -43,14 +44,14 @@ class BlogPostAdmin(admin.ModelAdmin):
 
 
 @admin.register(CompanyProfile)
-class CompanyProfileAdmin(admin.ModelAdmin):
+class CompanyProfileAdmin(ModelAdmin):
     list_display = ('title', 'is_active', 'download_url', 'uploadcare_file_id', 'updated_at')
     list_filter = ('is_active',)
     search_fields = ('title', 'download_url', 'uploadcare_file_id')
 
 
 @admin.register(ProfileDownloadLead)
-class ProfileDownloadLeadAdmin(admin.ModelAdmin):
+class ProfileDownloadLeadAdmin(ModelAdmin):
     list_display = ('email', 'source', 'ip_address', 'sent_at', 'created_at')
     list_filter = ('source', 'sent_at', 'created_at')
     search_fields = ('email', 'user_agent', 'source')

@@ -102,6 +102,7 @@ if render_hostname:
 # Application definition
 
 INSTALLED_APPS = [
+    'unfold',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -110,6 +111,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
 ]
+
+UNFOLD = {
+    'SITE_TITLE': 'Shelta Cost Admin',
+    'SITE_HEADER': 'Shelta Cost Solutions Ltd',
+    'SITE_URL': '/',
+    'SITE_SYMBOL': 'business_center',
+    'SHOW_HISTORY': True,
+    'SHOW_VIEW_ON_SITE': True,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -5847,15 +5847,15 @@ p {
 }
 .footer__one-widget h5 {
   color: var(--text-white);
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 34px;
+  line-height: 30px;
 }
 .footer__one-widget > h4 {
   color: var(--text-white);
   margin-bottom: 20px;
-  font-size: 28px;
-  line-height: 38px;
+  font-size: 22px;
+  line-height: 32px;
 }
 .footer__one-widget.address {
   margin-left: -40px;
@@ -5863,9 +5863,9 @@ p {
 .footer__one-widget-address h6 {
   color: var(--color-6);
   font-family: var(--body-font);
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 400;
-  line-height: 30px;
+  line-height: 24px;
 }
 .footer__one-widget-address h6 a {
   transition: 0.4s;
@@ -5879,10 +5879,10 @@ p {
 .footer__one-widget-address h4 a {
   color: var(--primary-color-1);
   font-family: var(--body-font);
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 400;
   text-decoration: underline;
-  line-height: 32px;
+  line-height: 28px;
 }
 
 .footer-widget-menu ul {
@@ -5900,8 +5900,8 @@ p {
 .footer-widget-menu ul li a {
   color: var(--color-6);
   transition: 0.4s;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 15px;
+  line-height: 25px;
 }
 .footer-widget-menu ul li a:hover {
   color: var(--primary-color-1);
@@ -6480,6 +6480,8 @@ p {
 ==========================================================================*/
 .portfolio__two-item img {
   border-radius: 10px;
+  filter: brightness(0.66);
+  transition: 0.4s;
 }
 .portfolio__two-item-content {
   position: absolute;
@@ -6487,10 +6489,11 @@ p {
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   transition: 0.4s;
   width: 100%;
+  padding: 0 30px;
 }
 .portfolio__two-item-content span {
   font-size: 18px;
@@ -6520,11 +6523,7 @@ p {
   transform: rotate(45deg);
 }
 .portfolio__two-item:hover img {
-  filter: brightness(0.66);
-}
-.portfolio__two-item:hover .portfolio__two-item-content {
-  visibility: visible;
-  opacity: 1;
+  filter: brightness(0.52);
 }
 
 /*==========================================================================
