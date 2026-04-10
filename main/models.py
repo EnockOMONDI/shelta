@@ -1,4 +1,14 @@
+from django.conf import settings
 from django.db import models
+
+
+def asset_url(path):
+    if not path:
+        return ''
+    if path.startswith(('http://', 'https://', '/')):
+        return path
+    normalized_path = path.removeprefix('assets/').lstrip('/')
+    return f'{settings.STATIC_URL.rstrip("/")}/{normalized_path}'
 
 
 class Service(models.Model):
@@ -54,6 +64,18 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def image_url(self):
+        return asset_url(self.image)
+
+    @property
+    def gallery_image_left_url(self):
+        return asset_url(self.gallery_image_left)
+
+    @property
+    def gallery_image_right_url(self):
+        return asset_url(self.gallery_image_right)
 
 
 class BlogPost(models.Model):

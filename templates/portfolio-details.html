@@ -31,7 +31,7 @@
 			</div>
 			<div class="col-lg-8">
 				<div class="portfolio__details-area">
-					<img src="{{ project.image }}" alt="{{ project.title }}">
+					<img src="{{ project.image_url }}" alt="{{ project.title }}">
 					<h3 class="mt-25 mb-20">{{ project.detail_heading }}</h3>
 					<p class="mb-25">{{ project.detail_intro }}</p>
 					<div class="row mb-25">
@@ -53,8 +53,8 @@
 					<h4 class="mb-20">How Shelta Cost Delivers Value</h4>
 					<p>{{ project.detail_body }}</p>
 					<div class="row mt-40 mb-40 portfolio__details-area-image">
-						<div class="col-sm-6 sm-mb-25"><img src="{{ project.gallery_image_left }}" alt="{{ project.title }}"></div>
-						<div class="col-sm-6"><img src="{{ project.gallery_image_right }}" alt="{{ project.title }}"></div>
+						<div class="col-sm-6 sm-mb-25"><img src="{{ project.gallery_image_left_url }}" alt="{{ project.title }}"></div>
+						<div class="col-sm-6"><img src="{{ project.gallery_image_right_url }}" alt="{{ project.title }}"></div>
 					</div>
 					<p>{{ project.detail_body_two }}</p>
 				</div>

@@ -23,7 +23,7 @@
 			<div class="col-xl-4 col-md-6 mt-25 wow fadeInUp" data-wow-delay=".4s">
 				<div class="portfolio__four-item">
 					<a href="{% url 'project_detail' project.slug %}"><i class="flaticon flaticon-right-up"></i></a>
-					<a href="{% url 'project_detail' project.slug %}"><img src="{{ project.image }}" alt="{{ project.title }}"></a>
+					<a href="{% url 'project_detail' project.slug %}"><img src="{{ project.image_url }}" alt="{{ project.title }}"></a>
 					<div class="portfolio__four-item-content">
 						<span>{{ project.sector }}</span>
 						<h5><a href="{% url 'project_detail' project.slug %}">{{ project.title }}</a></h5>

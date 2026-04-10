@@ -182,7 +182,7 @@
                     <div class="portfolio__two-right">
                         {% for project in featured_projects %}
                         <div class="portfolio__two-item{% if not forloop.first %} mt-25{% endif %} card_sticky" {% if forloop.counter == 1 %}style="--card-top: 100px;"{% elif forloop.counter == 2 %}style="--card-top: 180px;"{% elif forloop.counter == 3 %}style="--card-top: 260px;"{% endif %}>
-                            <img src="{{ project.image }}" alt="{{ project.title }}">
+                            <img src="{{ project.image_url }}" alt="{{ project.title }}">
                             <div class="portfolio__two-item-content">
                                 <span>{{ project.sector }}</span>
                                 <h4><a href="{% url 'project_detail' project.slug %}">{{ project.title }}</a></h4>
