@@ -6478,7 +6478,19 @@ p {
 /*==========================================================================
 * Portfolio Two CSS
 ==========================================================================*/
+.portfolio__two-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.portfolio__two-item.card_sticky {
+  position: sticky;
+  z-index: 99;
+  top: var(--card-top);
+}
 .portfolio__two-item img {
+  display: block;
+  width: 100%;
   border-radius: 10px;
   filter: brightness(0.66);
   transition: 0.4s;
@@ -6494,6 +6506,7 @@ p {
   transition: 0.4s;
   width: 100%;
   padding: 0 30px;
+  z-index: 2;
 }
 .portfolio__two-item-content span {
   font-size: 18px;
